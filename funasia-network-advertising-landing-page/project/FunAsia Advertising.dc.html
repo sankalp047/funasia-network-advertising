@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A0A0F;color:#F5EFE6;font-family:"Bricolage Grotesque",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  a:hover{opacity:.82}
+  ::selection{background:#F02D65;color:#fff}
+  @keyframes om-wave{0%,100%{transform:scaleY(.16)}50%{transform:scaleY(1)}}
+  @keyframes om-radar{0%{transform:scale(.18);opacity:.9}100%{transform:scale(1);opacity:0}}
+  @keyframes om-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(240,45,101,.6)}50%{opacity:.65;box-shadow:0 0 0 7px rgba(240,45,101,0)}}
+  @keyframes om-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes om-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+</style>
+</helmet>
+<div style="--accent: {{accentColor}}; position:relative;overflow-x:hidden">
+
+  <div style="position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1100px 600px at 78% -8%, rgba(255,106,26,.16), transparent 60%),radial-gradient(900px 620px at 6% 8%, rgba(240,45,101,.14), transparent 62%)"></div>
+
+  <header style="position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(10,10,15,.55);border-bottom:1px solid rgba(245,239,230,.08)">
+    <div style="max-width:1280px;margin:0 auto;padding:16px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:center;gap:11px">
+        <span style="font-weight:800;font-size:25px;letter-spacing:-.03em;line-height:1"><span style="color:var(--accent,#FF6A1A)">Fun</span>Asia</span>
+        <span style="font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.34em;color:rgba(245,239,230,.5)">NETWORK</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:11px">
+        <div style="display:none;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(245,239,230,.14);border-radius:999px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em">
+          <span style="width:8px;height:8px;border-radius:99px;background:#F02D65;animation:om-pulse 1.8s ease-in-out infinite"></span>ON AIR
+        </div>
+        <a href="{{ telHref }}" style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1px solid rgba(245,239,230,.2);border-radius:999px;font-size:14px;font-weight:600" style-hover="border-color:#F5EFE6;opacity:1">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>{{ phoneDisplay }}</span>
+        </a>
+        <a href="{{ mailHref }}" style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:linear-gradient(100deg,var(--accent,#FF6A1A),#F02D65);color:#fff;font-size:14px;font-weight:700" style-hover="opacity:.9">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+          <span>Email us</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:70px 34px 40px">
+    <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 15px;border:1px solid rgba(245,239,230,.16);border-radius:999px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.22em;margin-bottom:34px">
+      <span style="width:8px;height:8px;border-radius:99px;background:#F02D65;animation:om-pulse 1.8s ease-in-out infinite"></span>
+      BROADCASTING ACROSS DALLAS–FORT WORTH
+    </div>
+    <h1 style="font-weight:700;font-size:clamp(48px,8vw,112px);line-height:.94;letter-spacing:-.045em;margin:0;max-width:15ch;text-wrap:balance">Tap into DFW's booming <span style="background:linear-gradient(100deg,var(--accent,#FF6A1A),#F02D65);-webkit-background-clip:text;background-clip:text;color:transparent">South Asian</span> market.</h1>
+    <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end;margin-top:40px">
+      <div>
+        <p style="font-size:19px;line-height:1.55;color:rgba(245,239,230,.72);margin:0 0 30px;max-width:540px">One partner for full-fledge radio <em style="font-style:normal;color:var(--accent,#FF6A1A);font-weight:600">and</em> precision programmatic — reaching 1M+ engaged listeners and households, on air and online.</p>
+        <div style="display:flex;gap:13px;flex-wrap:wrap">
+          <a href="{{ telHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 26px;border-radius:999px;background:#F5EFE6;color:#0A0A0F;font-size:15px;font-weight:700" style-hover="opacity:.88">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call {{ phoneDisplay }}
+          </a>
+          <a href="{{ mailHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 26px;border-radius:999px;border:1px solid rgba(245,239,230,.24);color:#F5EFE6;font-size:15px;font-weight:600" style-hover="border-color:#F5EFE6;opacity:1">
+            Email our ad team
+          </a>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(245,239,230,.14);border-radius:18px;padding:22px 24px;background:rgba(245,239,230,.03)">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.2em;color:rgba(245,239,230,.5);margin-bottom:16px">
+          <span>NOW TUNING</span><span style="color:var(--accent,#FF6A1A)">FUNASIA RADIO</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:20px;margin-bottom:18px">
+          <div><div style="font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1">104.9<span style="font-size:18px;font-weight:600"> FM</span></div></div>
+          <div style="width:1px;height:38px;background:rgba(245,239,230,.16)"></div>
+          <div><div style="font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1">700<span style="font-size:18px;font-weight:600"> AM</span></div></div>
+        </div>
+        <div style="height:56px;color:var(--accent,#FF6A1A)">{{ waveform }}</div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showTicker }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;z-index:1;margin-top:34px;border-top:1px solid rgba(245,239,230,.1);border-bottom:1px solid rgba(245,239,230,.1);background:linear-gradient(100deg,var(--accent,#FF6A1A),#F02D65);color:#0A0A0F;overflow:hidden">
+    <div style="display:flex;width:max-content;animation:om-marquee 32s linear infinite">
+      <div style="display:flex;align-items:center;gap:0;padding:15px 0">{{ tickerA }}</div>
+      <div style="display:flex;align-items:center;gap:0;padding:15px 0">{{ tickerB }}</div>
+    </div>
+  </div>
+  </sc-if>
+
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:40px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent,#FF6A1A)">01</span>
+      <h2 style="font-weight:700;font-size:clamp(32px,4vw,52px);line-height:1;letter-spacing:-.035em;margin:0">Two signals. One network.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+      <div style="position:relative;border:1px solid rgba(245,239,230,.14);border-radius:22px;overflow:hidden;background:rgba(245,239,230,.03)">
+        <div style="position:relative;aspect-ratio:16/10;background:#14141C"><image-slot id="radio" shape="rect" fit="cover" placeholder="Radio studio / on-air"></image-slot>
+          <div style="position:absolute;left:16px;top:16px;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(10,10,15,.6);backdrop-filter:blur(6px);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em"><span style="width:7px;height:7px;border-radius:99px;background:#F02D65;animation:om-pulse 1.8s ease-in-out infinite"></span>ON AIR</div>
+        </div>
+        <div style="padding:32px 32px 36px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#FF6A1A);margin-bottom:12px">FULL-FLEDGE RADIO</div>
+          <h3 style="font-weight:700;font-size:27px;letter-spacing:-.02em;line-height:1.05;margin:0 0 12px">Live on Dallas airwaves</h3>
+          <p style="font-size:15px;line-height:1.6;color:rgba(245,239,230,.66);margin:0 0 20px">Broadcasting on full-fledge stations across DFW — 104.9 FM and 700 AM — with music, talk, and community programming a million listeners trust.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px">
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>:15 / :30 / :60 spots & sponsorships</li>
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>On-air talent reads & branded segments</li>
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>Live event, contest & festival integrations</li>
+          </ul>
+        </div>
+      </div>
+      <div style="position:relative;border:1px solid rgba(245,239,230,.14);border-radius:22px;overflow:hidden;background:rgba(245,239,230,.03)">
+        <div style="position:relative;aspect-ratio:16/10;background:#14141C"><image-slot id="dsp" shape="rect" fit="cover" placeholder="Programmatic / data visual"></image-slot>
+          <div style="position:absolute;left:16px;top:16px;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:rgba(10,10,15,.6);backdrop-filter:blur(6px);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em">REAL-TIME</div>
+        </div>
+        <div style="padding:32px 32px 36px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#FF6A1A);margin-bottom:12px">PROGRAMMATIC · DSP</div>
+          <h3 style="font-weight:700;font-size:27px;letter-spacing:-.02em;line-height:1.05;margin:0 0 12px">Precision digital, at scale</h3>
+          <p style="font-size:15px;line-height:1.6;color:rgba(245,239,230,.66);margin:0 0 20px">Programmatic campaigns through our demand-side platform — reaching South Asian households across display, video, CTV, and streaming audio with real-time targeting.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px">
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>Audience & geo targeting down to the ZIP</li>
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>Display, video, CTV/OTT & native inventory</li>
+            <li style="display:flex;gap:11px;font-size:14.5px"><span style="color:var(--accent,#FF6A1A);font-weight:700">→</span>Transparent reporting & optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showAudienceStats }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px">
+    <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center">
+      <div style="position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center">
+        <div style="position:absolute;inset:0;color:var(--accent,#FF6A1A)">{{ radar }}</div>
+        <div style="position:relative;text-align:center">
+          <div style="font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:.9;background:linear-gradient(100deg,var(--accent,#FF6A1A),#F02D65);-webkit-background-clip:text;background-clip:text;color:transparent">1M+</div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.18em;color:rgba(245,239,230,.6);margin-top:8px">MONTHLY REACH</div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:20px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent,#FF6A1A)">02</span>
+          <h2 style="font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.035em;margin:0">An audience you can't buy anywhere else.</h2>
+        </div>
+        <p style="font-size:16px;line-height:1.6;color:rgba(245,239,230,.66);margin:0 0 30px;max-width:460px">Affluent, brand-loyal, and highly engaged — the DFW South Asian community over-indexes on income, education, and purchase intent.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(245,239,230,.12);border:1px solid rgba(245,239,230,.12);border-radius:16px;overflow:hidden">
+          <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+            <div style="background:#0A0A0F;padding:24px 22px">
+              <div style="font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--accent,#FF6A1A)">{{ s.n }}</div>
+              <div style="font-size:13px;line-height:1.4;color:rgba(245,239,230,.66);margin-top:8px">{{ s.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px">
+    <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:36px">
+      <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent,#FF6A1A)">03</span>
+      <h2 style="font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.035em;margin:0">Every way to show up</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <sc-for list="{{ formats }}" as="fmt" hint-placeholder-count="6">
+        <div style="border:1px solid rgba(245,239,230,.12);border-radius:16px;padding:26px 24px;background:rgba(245,239,230,.03)" style-hover="border-color:var(--accent,#FF6A1A)">
+          <div style="width:42px;height:42px;border-radius:11px;background:linear-gradient(120deg,rgba(255,106,26,.18),rgba(240,45,101,.18));display:flex;align-items:center;justify-content:center;color:var(--accent,#FF6A1A);margin-bottom:16px">{{ fmt.icon }}</div>
+          <div style="font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px">{{ fmt.title }}</div>
+          <div style="font-size:13.5px;line-height:1.5;color:rgba(245,239,230,.6)">{{ fmt.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px">
+    <div style="display:grid;grid-template-columns:.82fr 1.18fr;gap:52px;align-items:start">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:16px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent,#FF6A1A)">04</span>
+          <h2 style="font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.035em;margin:0">A media partner, not a vendor.</h2>
+        </div>
+        <p style="font-size:15px;line-height:1.65;color:rgba(245,239,230,.62);margin:20px 0 0;max-width:340px">For over two decades we've been the connective tissue between brands and the South Asian community of North Texas. We know this audience because we are this audience.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(245,239,230,.12);border:1px solid rgba(245,239,230,.12);border-radius:18px;overflow:hidden">
+        <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="6">
+          <div style="background:#0A0A0F;padding:26px 24px">
+            <div style="color:var(--accent,#FF6A1A);margin-bottom:12px">{{ r.icon }}</div>
+            <div style="font-size:15.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px">{{ r.title }}</div>
+            <div style="font-size:13px;line-height:1.5;color:rgba(245,239,230,.6)">{{ r.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px">
+    <div style="display:grid;grid-template-columns:1fr .85fr;gap:52px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:18px">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--accent,#FF6A1A)">05</span>
+          <h2 style="font-weight:700;font-size:clamp(30px,3.6vw,46px);line-height:1;letter-spacing:-.035em;margin:0">Blanketing the metroplex</h2>
+        </div>
+        <p style="font-size:15px;line-height:1.65;color:rgba(245,239,230,.66);margin:0 0 24px;max-width:480px">From Plano and Irving to Frisco, Richardson, and beyond — our signal and our digital reach cover the neighborhoods where the South Asian community lives, works, and shops.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px">
+          <sc-for list="{{ cities }}" as="c" hint-placeholder-count="10">
+            <span style="padding:8px 15px;border:1px solid rgba(245,239,230,.18);border-radius:999px;font-size:13.5px;font-weight:500" style-hover="border-color:var(--accent,#FF6A1A)">{{ c }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:5/4;border-radius:20px;overflow:hidden;border:1px solid rgba(245,239,230,.14)">
+        <image-slot id="map" shape="rect" fit="cover" placeholder="DFW coverage map"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ showClientLogos }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:70px 34px 10px">
+    <div style="text-align:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;color:rgba(245,239,230,.42);margin-bottom:30px">TRUSTED BY BRANDS ADVERTISING TO DFW</div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:14px">
+      <sc-for list="{{ logos }}" as="lg" hint-placeholder-count="6">
+        <div style="aspect-ratio:2/1;border:1px dashed rgba(245,239,230,.16);border-radius:12px;display:flex;align-items:center;justify-content:center;color:rgba(245,239,230,.32);font-size:12.5px;font-weight:600">{{ lg }}</div>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:70px 34px 20px">
+    <div style="position:relative;border-radius:26px;overflow:hidden;background:linear-gradient(115deg,var(--accent,#FF6A1A),#F02D65);padding:66px 58px">
+      <div style="position:relative;z-index:1;max-width:680px">
+        <h2 style="font-weight:700;font-size:clamp(36px,5vw,60px);line-height:.98;letter-spacing:-.04em;margin:0 0 16px;color:#fff">Let's build your DFW campaign.</h2>
+        <p style="font-size:17px;line-height:1.5;color:rgba(255,255,255,.92);margin:0 0 32px">Talk to our advertising team about radio, programmatic, or a combined plan built around your goals and budget.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a href="{{ telHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 28px;border-radius:999px;background:#0A0A0F;color:#fff;font-size:15px;font-weight:700" style-hover="opacity:.86">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call {{ phoneDisplay }}
+          </a>
+          <a href="{{ mailHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 28px;border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);color:#fff;font-size:15px;font-weight:600" style-hover="background:rgba(255,255,255,.28);opacity:1">
+            {{ emailDisplay }}
+          </a>
+        </div>
+      </div>
+      <div style="position:absolute;right:-70px;top:50%;transform:translateY(-50%);width:340px;height:340px;color:rgba(255,255,255,.5);animation:om-float 6s ease-in-out infinite">{{ radar }}</div>
+    </div>
+  </section>
+
+  <footer style="position:relative;z-index:1;border-top:1px solid rgba(245,239,230,.1);margin-top:70px">
+    <div style="max-width:1280px;margin:0 auto;padding:56px 34px 40px">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(245,239,230,.1)">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+            <span style="font-weight:800;font-size:23px;letter-spacing:-.03em"><span style="color:var(--accent,#FF6A1A)">Fun</span>Asia</span>
+            <span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.32em;color:rgba(245,239,230,.5)">NETWORK</span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:rgba(245,239,230,.6);margin:0;max-width:340px">The South Asian media network of Dallas–Fort Worth. Radio, digital, and programmatic advertising that reaches the community you want to grow with.</p>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:rgba(245,239,230,.45);margin-bottom:16px">ADVERTISE</div>
+          <a href="{{ telHref }}" style="display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;margin-bottom:14px;letter-spacing:-.01em" style-hover="color:var(--accent,#FF6A1A);opacity:1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#FF6A1A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {{ phoneDisplay }}
+          </a>
+          <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;word-break:break-all" style-hover="color:var(--accent,#FF6A1A);opacity:1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent,#FF6A1A)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+            {{ emailDisplay }}
+          </a>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:rgba(245,239,230,.45);margin-bottom:16px">ON AIR</div>
+          <div style="font-size:15px;color:rgba(245,239,230,.75);line-height:1.9">104.9 FM<br>700 AM<br>Dallas–Fort Worth, TX</div>
+        </div>
+      </div>
+      <div style="padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(245,239,230,.45)">
+        <span>© {{ year }} FunAsia Network. All rights reserved.</span>
+        <span>Programmatic (DSP) · Full-Fledge Radio · DFW</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF6A1A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FF6A1A&quot;,&quot;#F02D65&quot;,&quot;#F5A623&quot;,&quot;#12B886&quot;,&quot;#7C5CFF&quot;]},&quot;showTicker&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showAudienceStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showClientLogos&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const phoneDigits = "4694243188";
+    const email = "advertising@funasia.net";
+    const R = React.createElement;
+    const svg = (p) => R("span", { style: { display: "inline-flex" }, dangerouslySetInnerHTML: { __html: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>` } });
+
+    // Live waveform (animated, state-free)
+    const bars = Array.from({ length: 56 }, (_, i) =>
+      R("span", { key: i, style: { flex: "1", height: "100%", background: "currentColor", borderRadius: "3px", transformOrigin: "center", animation: `om-wave ${0.9 + (i % 7) * 0.13}s ease-in-out ${(i % 11) * 0.07}s infinite` } }));
+    const waveform = R("div", { style: { display: "flex", alignItems: "center", gap: "2px", height: "100%", width: "100%" } }, bars);
+
+    // Radar rings
+    const radar = R("div", { style: { position: "relative", width: "100%", height: "100%" } },
+      [0, 1, 2, 3].map(i => R("span", { key: i, style: { position: "absolute", inset: 0, borderRadius: "999px", border: "1.5px solid currentColor", animation: `om-radar 4.4s ease-out ${i * 1.1}s infinite` } })),
+      R("span", { key: "dot", style: { position: "absolute", top: "50%", left: "50%", width: "10px", height: "10px", marginLeft: "-5px", marginTop: "-5px", borderRadius: "999px", background: "currentColor" } })
+    );
+
+    const tickerData = ["1M+ MONTHLY LISTENERS", "104.9 FM + 700 AM", "400K+ SOUTH ASIAN RESIDENTS", "PROGRAMMATIC · DSP", "$100K+ MEDIAN HOUSEHOLD INCOME", "FULL-FLEDGE RADIO", "25 YEARS ON AIR IN DFW"];
+    const tick = (key) => R("div", { key, style: { display: "flex", alignItems: "center" } },
+      tickerData.map((t, i) => R("span", { key: i, style: { display: "inline-flex", alignItems: "center" } },
+        R("span", { style: { fontFamily: "'Space Mono',monospace", fontSize: "13px", fontWeight: 700, letterSpacing: "0.08em", padding: "0 22px", whiteSpace: "nowrap" } }, t),
+        R("span", { style: { width: "6px", height: "6px", borderRadius: "999px", background: "#0A0A0F" } })
+      ))
+    );
+
+    return {
+      accentColor: this.props.accentColor ?? "#FF6A1A",
+      showAudienceStats: this.props.showAudienceStats ?? true,
+      showClientLogos: this.props.showClientLogos ?? true,
+      showTicker: this.props.showTicker ?? true,
+      phoneDisplay: "(469) 424-3188",
+      emailDisplay: email,
+      telHref: "tel:+1" + phoneDigits,
+      mailHref: "mailto:" + email + "?subject=Advertising%20inquiry%20%E2%80%94%20FunAsia%20Network",
+      year: new Date().getFullYear(),
+      waveform, radar,
+      tickerA: tick("a"), tickerB: tick("b"),
+      stats: [
+        { n: "400K+", label: "South Asian residents in the metroplex" },
+        { n: "$100K+", label: "Median household income of the audience" },
+        { n: "4th", label: "Largest & fastest-growing U.S. metro" },
+        { n: "25 yrs", label: "Serving DFW on the air" },
+      ],
+      formats: [
+        { title: "Radio Spots", desc: ":15, :30 and :60 commercials on 104.9 FM & 700 AM.", icon: svg('<path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="currentColor"/>') },
+        { title: "Display Ads", desc: "High-impact banners across premium web inventory.", icon: svg('<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/>') },
+        { title: "Video & CTV/OTT", desc: "Pre-roll and connected-TV video on the big screen.", icon: svg('<rect x="2" y="4" width="20" height="14" rx="2"/><path d="m10 9 5 3-5 3z"/>') },
+        { title: "Streaming Audio", desc: "Digital audio spots served alongside live streams.", icon: svg('<path d="M2 12h3l3-8 4 16 3-8h4"/>') },
+        { title: "Sponsorships", desc: "Own a show, segment, contest, or on-air feature.", icon: svg('<path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/>') },
+        { title: "Events & Festivals", desc: "Live activations at FunAsia community events.", icon: svg('<path d="M8 2v4M16 2v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/>') },
+      ],
+      reasons: [
+        { title: "Community trust", desc: "Two decades as the voice South Asian DFW turns on daily.", icon: svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>') },
+        { title: "First-party audience", desc: "We know our listeners — and how to reach them precisely.", icon: svg('<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>') },
+        { title: "Bilingual creative", desc: "In-language spots and ads that actually resonate.", icon: svg('<path d="M5 8h9M9 3v5M12 20l4-9 4 9M13.5 17h5"/>') },
+        { title: "Full-funnel reach", desc: "Broadcast awareness plus programmatic performance.", icon: svg('<path d="M22 3H2l8 9.5V19l4 2v-8.5z"/>') },
+        { title: "Local team", desc: "A Dallas-based team that answers the phone.", icon: svg('<path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>') },
+        { title: "Measurable results", desc: "Transparent reporting on spend, reach, and lift.", icon: svg('<path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>') },
+      ],
+      cities: ["Dallas", "Plano", "Irving", "Frisco", "Richardson", "Garland", "Carrollton", "Arlington", "McKinney", "Fort Worth"],
+      logos: ["Your Logo", "Brand", "Company", "Retailer", "Auto", "Finance"],
+    };
+  }
+}
+</script>
+</body>
+</html>
