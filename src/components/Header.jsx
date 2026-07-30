@@ -1,4 +1,4 @@
-import { PhoneIcon, MailIcon } from './icons.jsx';
+import { PhoneIcon, MailIcon, DocumentIcon } from './icons.jsx';
 import { contact } from '../data.js';
 
 export default function Header() {
@@ -15,6 +15,15 @@ export default function Header() {
           <a href={contact.telHref} className="btn btn-outline">
             <PhoneIcon />
             <span>{contact.phoneDisplay}</span>
+          </a>
+          <a
+            href="/media-kit/FunAsia-Network-Media-Kit.pdf"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-outline"
+          >
+            <DocumentIcon />
+            <span>Media Kit</span>
           </a>
           <a href={contact.mailHref} className="btn btn-gradient">
             <MailIcon />
